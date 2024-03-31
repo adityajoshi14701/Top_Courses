@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Filter = (props) => {
+const Filter = ({filterData}) => {
   return (
     <div>
-     {props.filterData.map((data) => {
+     {filterData.map((data) => {
         return (
           <button key={data.id}>
             {data.title}

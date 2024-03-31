@@ -8,13 +8,15 @@ function App() {
 
   const [courses,setCourses] = useState(null);
   const [loading,setLoading]=useState(true);
+
 async function fetchData(){
   setLoading(true);
   try {
     let res = await fetch(apiUrl);
     let data = await res.json();
-    console.log(data); 
-    setCourses(data)
+   console.log(data.data)
+    setCourses(data.data)
+    console.log(courses); 
   } catch (error) {
     console.log('data could not be fetched ')
   }
@@ -34,7 +36,7 @@ useEffect(()=>{
             loading ? (
               <Spinner />
             ) : (
-              <Cards />
+              <Cards courses ={courses}/>
             )
           }
     </div>
